@@ -1,0 +1,24 @@
+CREATE SCHEMA IF NOT EXISTS `bar` DEFAULT CHARACTER SET utf8 ;
+USE `bar` ;
+
+insert into customerTable(c_id,cname,age) values (00000000000,"Artanis", 600);
+insert into customerTable(c_id,cname,age) values (0000000001,"Zeratul", 700);
+insert into customerTable(c_id,cname,age) values (0000000010,"Abathur",50);
+insert into customerTable(c_id,cname,age) values (0000000011,"Raynor",38);
+insert into customerTable(c_id,cname,age) values (0000000100,"Kerrigen",35);
+insert into customerTable(c_id,cname,age) values (0000000101,"Nova",21);
+insert into customerTable(c_id,cname,age) values (0000000110,"Tassadar",800);
+insert into customerTable(c_id,cname,age) values(00000000111,"Diablo",999);
+insert into customerTable(c_id,cname,age) values(00000001000,"Tyrael",999);
+insert into customerTable(c_id,cname,age) values(00000001001,"Zagara",10);
+insert into customerTable(c_id,cname,age) values(00000001010,"Dehaka",67);
+insert into customerTable(c_id,cname,age) values(00000001011,"Auriel",999);
+insert into customerTable(c_id,cname,age) values((0000001100,"Azmodan",400);
+insert into customerTable(c_id,cname,age) values(00000001101,"Tychus", 40);
+insert into customerTable(c_id,cname,age) values(00000001110,"Xul",60);
+insert into customerTable(c_id,cname,age) values(00000001111,"Sylvanas",25);
+insert into customerTable(c_id,cname,age) values(00000010000,"Jaina",30);
+insert into customerTable(c_id,cname,age) values(00000010001,"Varian",35);
+insert into customerTable(c_id,cname,age) values(00000010010,"Li Li", 15);
+insert into customerTable(c_id,cname,age) values(00000010011,"Rexxar",50);
+insert into customerTable(c_id,cname,age) values(00000010100,"Medivh",40);
