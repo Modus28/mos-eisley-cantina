@@ -8,4 +8,3 @@ p_id int(10),
 vegan bool,
 glutenfree bool,
 primary key(f_id));
-

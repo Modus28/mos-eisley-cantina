@@ -1,0 +1,11 @@
+INSERT INTO fooditem(`f_id`,`fname`,`p_id`,`vegan`,`glutenfree`) VALUES (1, 'onion rings', 4, true, false);
+INSERT INTO fooditem(`f_id`,`fname`,`p_id`,`vegan`,`glutenfree`) VALUES (2,	"fries",3,TRUE,FALSE);
+INSERT INTO fooditem(`f_id`,`fname`,`p_id`,`vegan`,`glutenfree`) VALUES (3,	"chicken wings",7,FALSE,FALSE);
+INSERT INTO fooditem(`f_id`,`fname`,`p_id`,`vegan`,`glutenfree`) VALUES (4,	"potato skins",6,FALSE,FALSE);
+INSERT INTO fooditem(`f_id`,`fname`,`p_id`,`vegan`,`glutenfree`) VALUES (5,	"nachos" ,5	,FALSE,FALSE);
+INSERT INTO fooditem(`f_id`,`fname`,`p_id`,`vegan`,`glutenfree`) VALUES (6,	"loaded nachos",8,FALSE,FALSE);
+INSERT INTO fooditem(`f_id`,`fname`,`p_id`,`vegan`,`glutenfree`) VALUES (7,	"soft pretzles",8,FALSE,FALSE);
+INSERT INTO fooditem(`f_id`,`fname`,`p_id`,`vegan`,`glutenfree`) VALUES (8,	"chips and salsa",5	,TRUE,FALSE);
+INSERT INTO fooditem(`f_id`,`fname`,`p_id`,`vegan`,`glutenfree`) VALUES (9,	"spinach and artichoke dip",4,TRUE,TRUE);
+INSERT INTO fooditem(`f_id`,`fname`,`p_id`,`vegan`,`glutenfree`) VALUES (10,"BBQ pork sandwhich",9,	FALSE,FALSE);
+INSERT INTO fooditem(`f_id`,`fname`,`p_id`,`vegan`,`glutenfree`) VALUES (11,"gyro",9,FALSE,FALSE);

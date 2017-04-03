@@ -1,0 +1,10 @@
+INSERT INTO priceTable(`p_id`,`price`) VALUES (0,0);
+INSERT INTO priceTable(`p_id`,`price`) VALUES (1,1);
+INSERT INTO priceTable(`p_id`,`price`) VALUES (2,2);
+INSERT INTO priceTable(`p_id`,`price`) VALUES (3,5);
+INSERT INTO priceTable(`p_id`,`price`) VALUES (4,7);
+INSERT INTO priceTable(`p_id`,`price`) VALUES (5,10);
+INSERT INTO priceTable(`p_id`,`price`) VALUES (6,12);
+INSERT INTO priceTable(`p_id`,`price`) VALUES (7,15);
+INSERT INTO priceTable(`p_id`,`price`) VALUES (8,17);
+INSERT INTO priceTable(`p_id`,`price`) VALUES (9,20);
