@@ -7,15 +7,6 @@ onload = function() {
   }
 }
 
-onload = function() {
-  var e = document.getElementById("refreshed");
-  if (e.value == "no") e.value = "yes";
-  else {
-    e.value = "no";
-    location.reload();
-  }
-}
-
 
 function openContent(evt, tabName) {
   var i, tabcontent, tablinks;

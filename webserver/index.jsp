@@ -30,11 +30,18 @@
 	Statement StatementRecordset1 = Conn.createStatement();
   %>
   <input type="hidden" id="refreshed" value="no">
+	<center>
 	<div class="tab">
 		<button class="tablinks" onclick="openContent(event, 'Insert')">Insert</button>
 		<button class="tablinks" onclick="openContent(event, 'Delete')" id="defaultOpen">Delete</button>
 		<button class="tablinks" onclick="openContent(event, 'View')">View</button>
 	</div>
+	</center>
+	
+	
+	
+	<div class="main-container">
+  <div class="fixer-container">
 	<div id="Insert" class="tabcontent">
 		<h2>Add Food Items</h2>
         <hr>
@@ -63,7 +70,6 @@ Vegan < 16 characters
 Gluten-Free < 95 characters
 'Price' must be a date format: yyyy-mm-dd
 This is because we are still hooked up to the old database.
-Don't delete the 'real' actors please
 	</pre>
 	</div>
 
@@ -144,6 +150,8 @@ Don't delete the 'real' actors please
         </table>
         <br>
       </div>
+	   </div>
+</div>
   <script src="frontpage.js"></script>
       
 </body>

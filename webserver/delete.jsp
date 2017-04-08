@@ -5,13 +5,13 @@
 
 <head>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
-
+  <link rel="stylesheet" type="text/css" href="frontpage.css">
   <title>EECS 341 Final Project </title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
-
+<center>
 <body>
-  <h1>You have deleted food! Don't you know there's starving children in $countryName ? </h1>
+  <h1>Your request has been processed. </h1>
   
   <!-- Database Connection -->
   <%@page language="java" import="java.sql.*;"%>
@@ -23,18 +23,25 @@
             "user=root&password=UnforgettablePassword" +
             "&useSSL=false";
 	Connection con = DriverManager.getConnection(server);
-	String[] toDelete = request.getParameterValues("id");
-	for(String toDel : toDelete) {
-		PreparedStatement deleteFood = con.prepareStatement("DELETE FROM MOVIESTAR WHERE starName = ?");
-		deleteFood.setString(1, toDel);
-		deleteFood.executeUpdate();
+	try {
+		String[] toDelete = request.getParameterValues("id");
+		for(String toDel : toDelete) {
+			PreparedStatement deleteFood = con.prepareStatement("DELETE FROM MOVIESTAR WHERE starName = ?");
+			deleteFood.setString(1, toDel);
+			deleteFood.executeUpdate();
+		}
+		out.println("Food deleted.");
+	}
+	catch (Exception e){
+		out.println("You tried to delete something that's already gone.");
 	}
 %>
+<p></p>
 
-  <input type="button" class="button" value="Go back to previous page" />
+  <input type="button" class="button" style = "width:190px;height:40px;"  value="Go back to previous page" />
 
   <script src="query.js"></script>
 
 </body>
-
+</center>
 </html>
