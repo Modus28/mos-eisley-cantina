@@ -9,6 +9,7 @@
   <title>EECS 341 Final Project </title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
+
 <center>
 <body>
   <h1>Your request was processed. </h1>
@@ -23,13 +24,14 @@
             "&useSSL=false";
 	Connection con = DriverManager.getConnection(server);
 
+  // Insert all values specified in form
 	PreparedStatement addFood = con.prepareStatement("INSERT INTO MOVIESTAR (starName,gender,address,birthdate) VALUES(?,?,?,?)");
 	try {
 		addFood.setString(1, request.getParameter("name"));
 		addFood.setString(2, request.getParameter("vegan"));
 		addFood.setString(3, request.getParameter("gluten"));
 		String stringDate = request.getParameter("price");
-		Date birthDate = new SimpleDateFormat("yyyy-MM-dd").parse(stringDate); 
+		Date birthDate = new SimpleDateFormat("yyyy-MM-dd").parse(stringDate);
 		java.sql.Date timeStamp = new java.sql.Date(birthDate.getTime());
 		addFood.setDate(4,timeStamp);
 		addFood.executeUpdate();
@@ -40,11 +42,10 @@
 	}
   %>
   <p></p>
-  
+
   <input type="button" class="button" style = "width:190px;height:40px" value="Go back to previous page" />
-  
   <script src="query.js"></script>
-  
+
 </body>
 </center>
 </html>

@@ -18,9 +18,8 @@
   position: relative;
   left: -50%;
 }
-	
-.div.tab {
 
+.div.tab {
   overflow: hidden;
   border: 1px solid #ccc;
   background-color: #f1f1f1;
@@ -28,7 +27,7 @@
 
 .div.tab button {
 	width: 70px;
-        height: 30px;
+  height: 30px;
   background-color: inherit;
   border: none;
   outline: none;
@@ -68,7 +67,6 @@
   position: relative;
   display: inline;
 }
-
 
 .centertable,
 tr,
