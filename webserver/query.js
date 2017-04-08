@@ -1,3 +1,5 @@
+// This script adds a button that goes back to the previous page
+// And also counts down to a time when the page automatically goes back 
 $(function() {
   $(document).on('click', '.button', function() {
     history.go(-1);
@@ -15,7 +17,7 @@ $(function() {
       // If we reached 0, redirect
       history.go(-1);
     } else {
-      //decrement time counter  
+      //decrement time counter
       time--;
       // otherwise, wait a second and do it again
       setTimeout(updateButton, 1000);

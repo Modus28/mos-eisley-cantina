@@ -4,7 +4,7 @@
 <html>
 
 <head>
- 
+
   <link rel="stylesheet" type="text/css" href="frontpage.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>EECS 341 Final Project </title>
@@ -29,7 +29,11 @@
 	Connection Conn = DriverManager.getConnection(server);
 	Statement StatementRecordset1 = Conn.createStatement();
   %>
+
+  <!-- Ensure page reloads every time you press back -->
   <input type="hidden" id="refreshed" value="no">
+
+  <!-- Buttons for tabs -->
 	<center>
 	<div class="tab">
 		<button class="tablinks" onclick="openContent(event, 'Insert')">Insert</button>
@@ -37,9 +41,9 @@
 		<button class="tablinks" onclick="openContent(event, 'View')">View</button>
 	</div>
 	</center>
-	
-	
-	
+
+
+
 	<div class="main-container">
   <div class="fixer-container">
 	<div id="Insert" class="tabcontent">
@@ -64,8 +68,8 @@
           <input type="submit" value="Add Food">
         </form>
 	<pre style="border: black 1px solid">Insert and Remove now work!
-However, there are some constraints. 
-Name < 45 characters 
+However, there are some constraints.
+Name < 45 characters
 Vegan < 16 characters
 Gluten-Free < 95 characters
 'Price' must be a date format: yyyy-mm-dd
@@ -153,7 +157,7 @@ This is because we are still hooked up to the old database.
 	   </div>
 </div>
   <script src="frontpage.js"></script>
-      
+
 </body>
 
 </html>

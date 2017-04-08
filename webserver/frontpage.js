@@ -1,3 +1,4 @@
+// This forces the user to reload the page when pressing back, so they don't need to manually
 onload = function() {
   var e = document.getElementById("refreshed");
   if (e.value == "no") e.value = "yes";
@@ -7,7 +8,7 @@ onload = function() {
   }
 }
 
-
+// This manages hiding and showing elements with the tab buttons
 function openContent(evt, tabName) {
   var i, tabcontent, tablinks;
   tabcontent = document.getElementsByClassName("tabcontent");

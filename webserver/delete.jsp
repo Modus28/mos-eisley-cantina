@@ -12,7 +12,7 @@
 <center>
 <body>
   <h1>Your request has been processed. </h1>
-  
+
   <!-- Database Connection -->
   <%@page language="java" import="java.sql.*;"%>
   <%
@@ -23,6 +23,8 @@
             "user=root&password=UnforgettablePassword" +
             "&useSSL=false";
 	Connection con = DriverManager.getConnection(server);
+
+  // Delete food with prepared statement 
 	try {
 		String[] toDelete = request.getParameterValues("id");
 		for(String toDel : toDelete) {
