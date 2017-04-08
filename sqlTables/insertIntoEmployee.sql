@@ -1,3 +1,6 @@
+CREATE SCHEMA IF NOT EXISTS `bar` DEFAULT CHARACTER SET utf8 ;
+USE `bar` ;
+
 insert into employee(e_id, ename, salary, datehired) values (00000, "Hinata", 2000, "12/15");
 insert into employee(e_id, ename, salary, datehired) values (00001, "Kotori", 5000, "1/1");
 insert into employee(e_id, ename, salary, datehired) values (00010, "Umi", 7500,"1/1");
