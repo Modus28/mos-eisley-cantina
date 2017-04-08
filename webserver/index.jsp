@@ -15,8 +15,9 @@
     float: left;
     margin: 5px;
     padding: 15px;
-    max-width: 700px;
-	height: 470px;
+    max-width: 1000px;
+	min-height: 470px;
+	max-height: 800px;
 } 
 
 .mywidth {
@@ -44,15 +45,12 @@ ResultSet transactSet = StatementRecordset1.executeQuery("SELECT * FROM studio I
 <div class="action">
   <h2>Transaction History</h2>
   <p>Live copy of our sales data</p>
-
 	<hr>
-      <form method="get" action="query.jsp">
         <table border=1 cellpadding=5>
           <tr>
 			<th>Customer ID</th>
             <th>Food ID</th>
             <th>Quantity</th>
-
           </tr>
   <%
       while (transactSet.next()) {
@@ -68,12 +66,6 @@ ResultSet transactSet = StatementRecordset1.executeQuery("SELECT * FROM studio I
   %>
         </table>
         <br>
-
-      </form>
-</form>
-</div>
-</form>
-
 </div> 
 
 
@@ -82,7 +74,7 @@ ResultSet transactSet = StatementRecordset1.executeQuery("SELECT * FROM studio I
   <h2>Insert</h2>
   <p>Add Food Items</p>
   <hr>
-      <form method="get" action="query.jsp">
+      <form method="get" action="insert.jsp">
         <table border=1 cellpadding=5>
           <tr>
 			<th>Name</th>
@@ -104,8 +96,14 @@ ResultSet transactSet = StatementRecordset1.executeQuery("SELECT * FROM studio I
         <br>
         <input type="submit" value="Add Food">
       </form>
-
-</form>
+<pre>Insert and Remove now work! 
+However, there are some constraints.
+'Price' must be a date format: yyyy-mm-dd
+Name < 45 characters 
+Gender < 16 characters
+Address < 95 characters
+This is because we are still hooked up to the old database.
+</pre>
 </div>
 
 <div class="action">
@@ -115,7 +113,7 @@ ResultSet foodSet = StatementRecordset1.executeQuery("SELECT * from moviestar");
   <h2>Remove</h2>
   <p>Remove Food Items</p> 
 	<hr>
-      <form method="get" action="query.jsp">
+      <form method="get" action="delete.jsp">
         <table border=1 cellpadding=5>
           <tr>
             <th>Choice</th>
