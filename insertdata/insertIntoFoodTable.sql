@@ -1,4 +1,4 @@
-INSERT INTO fooditem(`f_id`,`fname`,`p_id`,`vegan`,`glutenfree`) VALUES (1, 'onion rings', 4, true, false);
+INSERT INTO fooditem(`f_id`,`fname`,`p_id`,`vegan`,`glutenfree`) VALUES (1, "onion rings", 4, true, false);
 INSERT INTO fooditem(`f_id`,`fname`,`p_id`,`vegan`,`glutenfree`) VALUES (2,	"fries",3,TRUE,FALSE);
 INSERT INTO fooditem(`f_id`,`fname`,`p_id`,`vegan`,`glutenfree`) VALUES (3,	"chicken wings",7,FALSE,FALSE);
 INSERT INTO fooditem(`f_id`,`fname`,`p_id`,`vegan`,`glutenfree`) VALUES (4,	"potato skins",6,FALSE,FALSE);
