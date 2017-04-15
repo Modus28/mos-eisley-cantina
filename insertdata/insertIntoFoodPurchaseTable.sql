@@ -1,0 +1,11 @@
+insert into foodpurchase(billNum, f_id, qty) values (0, 1, 2);
+insert into foodpurchase(billNum, f_id, qty) values (0, 10, 1);
+insert into foodpurchase(billNum, f_id, qty) values (1, 5, 2);
+insert into foodpurchase(billNum, f_id, qty) values (1, 6, 1);
+insert into foodpurchase(billNum, f_id, qty) values (1, 7, 2);
+insert into foodpurchase(billNum, f_id, qty) values (1, 3, 2);
+insert into foodpurchase(billNum, f_id, qty) values (10, 4, 1);
+insert into foodpurchase(billNum, f_id, qty) values (10, 8, 2);
+insert into foodpurchase(billNum, f_id, qty) values (10, 6, 3);
+insert into foodpurchase(billNum, f_id, qty) values (11, 2, 1);
+insert into foodpurchase(billNum, f_id, qty) values (11, 1, 1);
