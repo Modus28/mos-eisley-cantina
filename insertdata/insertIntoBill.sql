@@ -10,7 +10,7 @@ insert into bill(billNum, c_id, e_id, tip) values (101,00101,00101,8);
 insert into bill(billNum, c_id, e_id, tip) values (110,00110,00110,6);
 insert into bill(billNum, c_id, e_id, tip) values (111,00111,00111,7);
 insert into bill(billNum, c_id, e_id, tip) values (1000,01000,01000,120);
-insert into bill(billNum, c_id, e_id, tip) values (1001,01001,01001,3);
+insert into bill(billNum, c_id, e_id, tip) values (1001,01001,01001,3); /* under 21 */
 insert into bill(billNum, c_id, e_id, tip) values (1010,01010,01010,8);
 insert into bill(billNum, c_id, e_id, tip) values (1011,01011,00000,5);
 insert into bill(billNum, c_id, e_id, tip) values (1100,01100,00001,9);
@@ -19,7 +19,7 @@ insert into bill(billNum, c_id, e_id, tip) values (1110,01110,00011,1);
 insert into bill(billNum, c_id, e_id, tip) values (1111,01111,00100,88);
 insert into bill(billNum, c_id, e_id, tip) values (10000,10000,00101,9);
 insert into bill(billNum, c_id, e_id, tip) values (10001,10001,00110,12);
-insert into bill(billNum, c_id, e_id, tip) values (10010,10010,00111,36);
+insert into bill(billNum, c_id, e_id, tip) values (10010,10010,00111,36); /* under 21 */
 insert into bill(billNum, c_id, e_id, tip) values (10011,10011,01000,67);
 insert into bill(billNum, c_id, e_id, tip) values (10100,10100,01001,8);
 insert into bill(billNum, c_id, e_id, tip) values (10101,00000,00000,66);
