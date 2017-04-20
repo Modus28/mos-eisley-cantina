@@ -122,7 +122,7 @@ CREATE TABLE `drinkpurchase` (
 
 LOCK TABLES `drinkpurchase` WRITE;
 /*!40000 ALTER TABLE `drinkpurchase` DISABLE KEYS */;
-INSERT INTO `drinkpurchase` VALUES (0,3,1),(0,18,2),(1,4,2),(1,11,2),(1,16,1),(1,18,2),(10,9,2),(10,17,1),(10,18,3),(11,2,1),(11,19,1);
+INSERT INTO `drinkpurchase` VALUES (0,3,1),(0,18,2),(1,4,2),(1,11,2),(1,16,1),(1,18,2),(10,9,2),(10,17,1),(10,18,3),(11,2,1),(11,19,1),(100,5,1),(100,6,1),(101,20,1),(110,3,1),(111,8,1),(111,18,1),(1000,4,1),(1000,19,1),(1001,18,1),(1011,1,1),(1100,6,1),(1101,7,1),(1101,18,1),(1110,18,1),(1111,4,1),(1111,5,1);
 /*!40000 ALTER TABLE `drinkpurchase` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -138,6 +138,7 @@ CREATE TABLE `employee` (
   `ename` varchar(45) NOT NULL,
   `salary` float DEFAULT NULL,
   `datehired` varchar(10) DEFAULT NULL,
+  `m_id` int(5) DEFAULT NULL,
   PRIMARY KEY (`e_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -148,7 +149,7 @@ CREATE TABLE `employee` (
 
 LOCK TABLES `employee` WRITE;
 /*!40000 ALTER TABLE `employee` DISABLE KEYS */;
-INSERT INTO `employee` VALUES (0,'Hinata',2000,'12/15'),(1,'Kotori',5000,'1/1'),(10,'Umi',7500,'1/1'),(11,'Sakura',3000,'6/3'),(100,'Ruby',1500,'7/30'),(101,'Honoka',2500,'9/10'),(110,'Aoi',3600,'4/2'),(111,'Rin',3100,'9/10'),(1000,'Kekyo',1000,'10/30'),(1001,'Kagome',4100,'8/25');
+INSERT INTO `employee` VALUES (0,'Hinata',2000,'12/15',5),(1,'Kotori',5000,'1/1',5),(5,'Bob',21000,'12/15',NULL),(10,'Umi',7500,'1/1',5),(11,'Sakura',3000,'6/3',5),(100,'Ruby',1500,'7/30',5),(101,'Honoka',2500,'9/10',5),(110,'Aoi',3600,'4/2',5),(111,'Rin',3100,'9/10',5),(1000,'Kekyo',1000,'10/30',5),(1001,'Kagome',4100,'8/25',5);
 /*!40000 ALTER TABLE `employee` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -205,33 +206,8 @@ CREATE TABLE `foodpurchase` (
 
 LOCK TABLES `foodpurchase` WRITE;
 /*!40000 ALTER TABLE `foodpurchase` DISABLE KEYS */;
+INSERT INTO `foodpurchase` VALUES (0,1,2),(0,10,1),(1,3,2),(1,5,2),(1,6,1),(1,7,2),(10,4,1),(10,6,3),(10,8,2),(11,1,1),(11,2,1),(100,2,1),(100,5,1),(100,10,2),(101,3,1),(101,4,2),(101,8,1),(110,5,1),(110,7,3),(110,9,1),(110,11,3),(111,1,1),(111,2,3),(111,3,1),(1000,3,1),(1000,5,1),(1000,7,1),(1000,9,1),(1001,2,1),(1001,4,2),(1001,8,2),(1001,10,1),(1011,2,1),(1011,3,2),(1011,6,1),(1011,9,1),(1100,5,1),(1100,6,1),(1100,7,1),(1100,11,1),(1101,2,1),(1101,3,2),(1101,9,1),(1101,10,1),(1110,1,1),(1110,2,1),(1110,3,2),(1110,5,1),(1110,10,1),(1110,11,1),(1111,1,1),(1111,5,2),(1111,9,1),(1111,10,1),(1111,11,1),(10000,1,1),(10000,4,1),(10000,8,1),(10001,1,1),(10001,5,1),(10001,7,1),(10001,8,1),(10001,11,1),(10010,2,2),(10010,3,2),(10011,1,1),(10011,2,2),(10011,3,1),(10011,4,1),(10011,5,1),(10011,6,1),(10100,1,1),(10100,2,1),(10100,6,1),(10100,11,1),(10101,11,2),(10110,1,1),(10110,2,2),(10111,1,1),(11000,3,1),(11000,4,2),(11001,1,1),(11001,2,1),(11001,3,1),(11010,3,1),(11010,7,1),(11010,9,1),(11011,9,1),(11011,10,1),(11100,11,3),(11101,10,1);
 /*!40000 ALTER TABLE `foodpurchase` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `manager`
---
-
-DROP TABLE IF EXISTS `manager`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `manager` (
-  `m_id` int(5) NOT NULL,
-  `mname` varchar(45) NOT NULL,
-  `e_id` int(5) DEFAULT NULL,
-  PRIMARY KEY (`m_id`),
-  KEY `employee_manager_fk_idx` (`e_id`),
-  CONSTRAINT `employee_manager_fk` FOREIGN KEY (`e_id`) REFERENCES `employee` (`e_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `manager`
---
-
-LOCK TABLES `manager` WRITE;
-/*!40000 ALTER TABLE `manager` DISABLE KEYS */;
-/*!40000 ALTER TABLE `manager` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -267,4 +243,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-04-12 20:33:53
+-- Dump completed on 2017-04-19 19:08:34
