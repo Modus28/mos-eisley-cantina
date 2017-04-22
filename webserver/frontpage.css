@@ -1,10 +1,13 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed:300');
+@import url('https://fonts.googleapis.com/css?family=Droid+Serif');
+
 .tabcontent {
   margin: 0 auto;
   vertical-align: top;
   background-color: #d8d2c0;
   margin: 5px;
   padding: 15px;
-  border: 2px solid black;
+  border: 2px solid black; 
   text-align: center;
 }
 
@@ -54,23 +57,21 @@
 }
 
 .title {
-  font-family: 'Helvetica Neue', sans-serif;
-  font-size: 80px;
-  font-weight: bold;
+  font-size: 80px; 
+  font-family: 'Roboto Condensed', sans-serif;
   letter-spacing: -1px;
   line-height: 1;
   text-align: center;
   margin-left: auto;
   margin-right: auto;
-  font-family: 'Trocchi';
   color: #7c795d;
   position: relative;
   display: inline;
+
 }
 
 .centertable,
-tr,
-td {
+tr,td {
   margin-left: auto;
   margin-right: auto;
   border: 1px solid black;
@@ -78,5 +79,6 @@ td {
 }
 
 .body,html {
+  font-family: 'Droid Serif', serif;
   background-color: #f5f4ef;
 }

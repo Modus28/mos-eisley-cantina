@@ -2,7 +2,7 @@
 *.sql linguist-language=SQL
 *.java linguist-language=Java
 *.tex linguist-language=TeX
-*.jsp linguist-language=Java Server Pages
+*.jsp linguist-language=Java+Server+Pages
 
 # Specify generated code/documentation folders
 webserver/* linguist-vendored=false
@@ -11,3 +11,8 @@ sqlTables/* linguist-vendored=false
 sqlTables/* linguist-documentation=false
 documentation/* linguist-documentation
 SQLDataDump/* linguist-vendored
+webserver/css* linguist-vendored
+webserver/fonts/* linguist-vendored
+webserver/img/* linguist-vendored
+webserver/js/* linguist-vendored
+webserver/WEB-INF/* linguist-vendored
