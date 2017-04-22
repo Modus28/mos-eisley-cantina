@@ -1,14 +1,14 @@
 # Force recognition of different languages in github
 *.sql linguist-language=SQL
 *.java linguist-language=Java
-*.jsp linguist-language="Java Server Pages"
+*.jsp linguist-language=Java+Server+Pages
 
 # Specify generated code/documentation folders
 insertdata/* linguist-vendored=false
 queries/* linguist-vendored=false
 documentation/* linguist-documentation
 SQLDataDump/* linguist-vendored=true
-webserver/css* linguist-vendored=true
+webserver/css/* linguist-vendored=true
 webserver/fonts/* linguist-vendored=true
 webserver/img/* linguist-vendored=true
 webserver/js/* linguist-vendored=true
