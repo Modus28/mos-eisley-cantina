@@ -20,6 +20,7 @@
 <link rel="stylesheet" href="css/font-awesome.css">
 <link rel="stylesheet" href="css/animate.css">
 <link rel="stylesheet" href="css/theme.css">
+<link rel="stylesheet" href="css/tabs.css">
 <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Playball' rel='stylesheet' type='text/css'>
@@ -44,7 +45,7 @@
 	<!--header-->
 	<header>
 	<div class="banner row" id="banner">		
-		<div class="parallax text-center" style="background-image: url(https://s-media-cache-ak0.pinimg.com/originals/ac/21/db/ac21db28b9cc46ad80734658bfb8b521.jpg);">
+		<div class="parallax text-center" style="background-image: url(http://i.imgur.com/jv4dvT9.jpg);">
 			<div class="parallax-pattern-overlay">
 				<div class="container text-center" style="height:870px;padding-top:170px;">
 					<a href="#"><img id="site-title" class=" wow fadeInDown" wow-data-delay="0.0s" wow-data-duration="0.9s" src="img/starwarslogowhite.png" alt="logo"/></a>
@@ -63,9 +64,10 @@
 								<div class="navbar-collapse collapse">
 									<ul class="nav navbar-nav">
 										<li class="menuItem active"><a href="#wrapper">Home</a></li>
-										<li class="menuItem"><a href="#aboutus">Our Staff</a></li>
+										<li class="menuItem"><a href="#aboutus">Who We Are</a></li>
 										<li class="menuItem"><a href="#specialties">Specialties</a></li>
 										<li class="menuItem"><a href="#feedback">Feedback</a></li>
+										<li class="menuItem"><a href="#administrative">Admin</a></li>
 										<li class="menuItem"><a href="#contact">Contact </a></li>
 									</ul>
 								</div>
@@ -83,15 +85,15 @@
 	<div class="container">
 		<div class="heading text-center">
 			<img class="dividerline" src="img/sep.png" alt="">
-			<h2>Our Staff</h2>
+			<h2>Our Founders</h2>
 			<img class="dividerline" src="img/sep.png" alt="">
 			<h3></h3>
 		</div>			
 		<div class="row">
 			<div class="col-md-6">
 				<div class="papers text-center">
-					<img src="http://static.srcdn.com/wp-content/uploads/Hayden-Christensen-Star-Wars-Episode-8-Anakin-Skywalker-Ghost.jpg" alt=""><br/>
-					<a href="https://blog.enhancv.com/content/images/2015/12/Anakin-Skywalker-Resume.jpg"><b>Download my resume</b></a>
+					<img src="http://i.imgur.com/QyJoi6Q.png" alt=""><br/>
+					<a href="http://i.imgur.com/RpEGD6e.jpg"><b>Download my resume</b></a>
 					<h4 class="notopmarg nobotmarg">Anakin Skywalker</h4>
 					<p>
 						I don't like sand. It's coarse and rough and irritating and it gets everywhere. Not like here. Here everything is soft and smooth. </p>
@@ -103,7 +105,7 @@
 			<div class="col-md-6">
 				<div class="papers text-center">
 					<img src="http://i.imgur.com/vqBWG32.jpg" alt="Darth Vader's Profile Shot"><br/>
-					<a href="https://blog.enhancv.com/content/images/2015/12/Darth-Vader-Resume.jpg"><b>Download my resume</b></a>
+					<a href="http://i.imgur.com/1jFJan2.jpg"><b>Download my resume</b></a>
 					<h4 class="notopmarg nobotmarg">Darth Vader</h4>
 					<p>
 						Give yourself to the Dark Side. It is the only way you can save your friends. Yes, your thoughts betray you. Your feelings for them are strong. Especially for... sister. So, you have a twin sister. </p>
@@ -125,7 +127,7 @@
 			<img class="dividerline" src="img/sep.png" alt="">
 			<h3>The Mos Eisley cantina is a dimly-lit tavern known for its strong drinks, hot tunes, and occasional outbreaks of shocking violence. Most star pilots visiting Tatooine spend their downtime in the cantina, making it an ideal spot to hire a starship's crew. Take a gander at our menu:</h3>
 		</div>
-			<div  class="table-responsive" ">
+			<div  class="table-responsive" style = " display:block;overflow-y:scroll; height:400px; ">
         <%
 			ResultSet foodSet = StatementRecordset1.executeQuery("SELECT * FROM bar.fooditem INNER JOIN bar.pricetable on bar.fooditem.p_id = bar.pricetable.p_id");
 		%>
@@ -161,6 +163,13 @@
 					<%
 					}
 					%>
+			<tr>
+                <th>Choice</th>
+                <th>Name</th>
+                <th>Vegan</th>
+                <th>Gluten-Free</th>
+                <th>Price</th>
+              </tr>
             </table>
             <br>
             <center><input type="submit" value="Order Selection">
@@ -169,7 +178,7 @@
       </div>
 		
 		<center><h4>Let's face it, you're here for the alcohol. Here's our stock: </h3></center>
-	<div  class="table-responsive" ">
+	<div  class="table-responsive" style = " display:block;overflow-y:scroll; height:400px;>
         <%
 			 foodSet = StatementRecordset1.executeQuery("SELECT * FROM bar.drinks INNER JOIN bar.pricetable on bar.drinks.p_id = bar.pricetable.p_id");
 		%>
@@ -201,12 +210,19 @@
 					<%
 					}
 					%>
+				<tr>
+                <th>Choice</th>
+                <th>Name</th>
+                <th>Alcoholic</th>
+                <th>Price</th>
+              </tr>
             </table>
             <br>
             <center><input type="submit" value="Order Selection">
             <input type="reset" value="Clear Selection"></center>
           </form>
       </div>
+	
 		
 	</div>
 	</section>
@@ -217,7 +233,7 @@
 	<div class="container w960">
 		<div class="heading">
 			<img class="dividerline" src="img/sep.png" alt="">
-			<h2>Clients Say</h2>
+			<h2>Feedback</h2>
 			<img class="dividerline" src="img/sep.png" alt="">
 			<h3>Many famous figures have visited our establishment.<br>
 			 While we can't list them all, here are a few of the many five star reviews we've had.</h3>
@@ -227,8 +243,65 @@
 [shoots more Force lighting] " <cite>The Emperor, On receiving his order<br/><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i></cite> </blockquote>
 		<blockquote>Weesa has munchy here a few times while onda island visit fami and friends.da servers here is just bombad and has great memories it seems.weesa sat onda ocean front patio and enjoy da view with weesa delicious wine and munchy.must try!" <cite>Jar Jar Binks, A Cocktail Party<br/><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i></cite> </blockquote>
 		</div>
-	</div>
+		</div>
+
 	</section>
+	<!-- Administrative tools -->
+	<section class="administrative" id="administrative">
+		<div class="heading text-center">
+			<img class="dividerline" src="img/sep.png" alt="">
+			<h2>Administrative</h2>
+			<img class="dividerline" src="img/sep.png" alt="">
+			<h3>We've detected that you're an individual with the rights to change the world. Start with our Cantina.</h3>
+		</div>
+		<div class="container">
+		<span id='tab-container' style = "display:inline-block;">
+		<!-- Add/Remove Food -->
+			<div class="tab-content">
+					<h1 class="tab" title="Add Items to Menu">Add Foods</h1>
+					<p>This is the content of tab 1 </p>
+			</div>
+			<div class="tab-content">
+					<h1 class="tab" title="title for page 2">Remove Foods</h1>
+					<p>This is the content of tab 2</p>
+			</div>
+		<!-- Add/Remove Drinks -->
+			<div class="tab-content">
+					<h1 class="tab" title="title for page 3">Add Drinks</h1>
+					<p>This is the content of tab 3</p>
+			</div>
+			<div class="tab-content">
+					<h1 class="tab" title="title for page 3">Remove Drinks</h1>
+					<p>This is the content of tab 4</p>
+			</div>
+			
+			<!-- Add/Remove Employees -->
+			<div class="tab-content">
+					<h1 class="tab" title="title for page 3">Add Employees</h1>
+					<p>This is the content of tab 5</p>
+			</div>
+			<div class="tab-content">
+					<h1 class="tab" title="title for page 3">Remove Employees</h1>
+					<p>This is the content of tab 6</p>
+			</div>
+			
+			<!-- View Purchase History -->
+			<!-- <div class="tab-content">
+					<h1 class="tab" title="title for page 3">View Purchases</h1>
+					<p>This is the content of tab 6.5 on container 1</p>
+			</div> 
+			-->
+			
+			<!-- Data Analysis -->
+			<div class="tab-content">
+					<h1 class="tab" title="title for page 3">Data Analysis</h1>
+					<p>This is the content of tab 7</p>
+			</div>
+			
+		</span>
+		</div>
+	</section>
+	
 	
 	<!--feedback-->
 	<section class="contact" id="contact">
@@ -273,6 +346,7 @@
 <script src="js/gridscroll.js"></script>
 <script src="js/contact.js"></script>
 <script src="js/common.js"></script>
+<script src="js/tabs.js"></script>
 
 <script type="text/javascript">
 jQuery(function($) {
@@ -284,7 +358,8 @@ $(document).ready( function() {
 		  1: 'aboutus',
 		  2: 'specialties',
 		  3: 'feedback',
-		  4: 'contact'
+		  4: 'administrative',
+		  5: 'contact'
 		},
 		itemClass: 'menuItem',
 		itemHover: 'active',
