@@ -1,7 +1,6 @@
 # Force recognition of different languages in github
 *.sql linguist-language=SQL
 *.java linguist-language=Java
-*.tex linguist-language=TeX
 *.jsp linguist-language="Java Server Pages"
 
 # Specify generated code/documentation folders

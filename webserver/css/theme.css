@@ -20,7 +20,7 @@ h1,h2,h3,h4,h5,h6 {
 	margin:0px auto;
 }
 a,a:hover {
-	color:#cc580c;
+	color:#428bca;
 	text-decoration: none;
 }
 img {max-width: 100%;}
@@ -111,11 +111,11 @@ img {max-width: 100%;}
 	display:none;
 }
 .isFixed .navbar-inverse .navbar-nav>.active>a,.isFixed .navbar-inverse .navbar-nav>.active>a:focus {
-	background:#cc580c;
+	background:#428bca;
 	color:#fff;
 }
 .isFixed .navbar.navbar-inverse.navbar-static-top a:hover {
-	background:#cc580c;
+	background:#428bca;
 	color:#fff;
 }
 .isFixed .navbar.navbar-inverse.navbar-static-top a {
@@ -185,7 +185,7 @@ header {
 	padding:5px;
 }
 .heading h2::first-letter {
-	color:#cc580c;
+	color:#428bca;
 }
 .heading h3 {
 	font-size:16px;
@@ -278,7 +278,7 @@ img#site-title {
 	margin:0 0 20px 0;
 	font-size:19px;
 	padding-bottom:10px;
-	color:#cc580c;
+	color:#428bca;
 	border-bottom: 4px double #eee;
 }
 /*---------------------------------------------------- 	Gallery Events------------------------------------------------------*/
@@ -563,7 +563,7 @@ textarea.contact {
 	border-radius:3px;
 }
 .contact.submit:hover {
-	background:#cc580c;
+	background:#428bca;
 }
 .done {
 	display:none;
@@ -583,7 +583,7 @@ textarea.contact {
 }
 /*----------------------------------------------------	 8. Footer Style------------------------------------------------------*/
 .footer {
-	background:#cc580c;
+	background:#428bca;
 	margin-top:120px;
 	position:relative;
 }
@@ -644,7 +644,7 @@ textarea.contact {
 	border-radius:50%;
 }
 .gototop i {
-	color:#cc580c;
+	color:#428bca;
 	line-height:70px;
 }
 .footer a,.footer a:hover {
@@ -665,11 +665,11 @@ blockquote:before {
 	position:absolute;
 	left:10px;
 	top:-30px;
-	color:#cc580c;
+	color:#428bca;
 	font-family:Georgia;
 }
 blockquote cite {
-	color:#cc580c;
+	color:#428bca;
 	font-size:14px;
 	display:block;
 	margin-top:5px;

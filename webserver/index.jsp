@@ -30,7 +30,7 @@
 	final String driver = "com.mysql.jdbc.Driver";
 	Driver DriverRecordset1 = (Driver)Class.forName(driver).newInstance();
 	final String server
-            = "jdbc:mysql://localhost:3306/mss?" +
+            = "jdbc:mysql://localhost:3306/bar?" +
             "user=root&password=UnforgettablePassword" +
             "&useSSL=false";
 	Connection Conn = DriverManager.getConnection(server);
@@ -125,12 +125,12 @@
 			<img class="dividerline" src="img/sep.png" alt="">
 			<h3>The Mos Eisley cantina is a dimly-lit tavern known for its strong drinks, hot tunes, and occasional outbreaks of shocking violence. Most star pilots visiting Tatooine spend their downtime in the cantina, making it an ideal spot to hire a starship's crew. Take a gander at our menu:</h3>
 		</div>
-			<div id="Delete" class="table-responsive" ">
+			<div  class="table-responsive" ">
         <%
-			ResultSet foodSet = StatementRecordset1.executeQuery("SELECT * from moviestar");
+			ResultSet foodSet = StatementRecordset1.executeQuery("SELECT * FROM bar.fooditem INNER JOIN bar.pricetable on bar.fooditem.p_id = bar.pricetable.p_id");
 		%>
 		<hr>
-		<form method="post" action="delete.jsp" autocomplete="off">
+		<form method="post" action="order.jsp" autocomplete="off">
 			<table class="table">
               <tr>
                 <th>Choice</th>
@@ -139,34 +139,75 @@
                 <th>Gluten-Free</th>
                 <th>Price</th>
               </tr>
-	<%
-      while (foodSet.next()) {
-        String id = foodSet.getString("starName");
-	%>
-                <tr>
-                  <td><input type="checkbox" name="id" value="<%= id %>"></td>
-                  <td>
-                    <%= foodSet.getString("starName") %>
-                  </td>
-                  <td>
-                    <%= foodSet.getString("gender") %>
-                  </td>
-                  <td>
-                    <%= foodSet.getString("address") %>
-                  </td>
-                  <td>
-                    <%= foodSet.getString("birthdate") %>
-                  </td>
-                </tr>
-                <%
-      }
-	%>
+					<%
+						while (foodSet.next()) {
+							String id = foodSet.getString("fname");
+					%>
+							<tr>
+							<td><input type="checkbox" name="id" value="<%= id %>"></td>
+							<td>
+								<%= foodSet.getString("fname") %>
+							</td>
+							<td>
+								<%= foodSet.getInt("vegan") != 0  %> 
+							</td>
+							<td>
+								<%= foodSet.getInt("glutenfree")  != 0 %> 
+							</td>
+							<td>
+								$<%= foodSet.getInt("price") %>.00
+							</td>
+							</tr>
+					<%
+					}
+					%>
             </table>
             <br>
             <center><input type="submit" value="Order Selection">
             <input type="reset" value="Clear Selection"></center>
           </form>
       </div>
+		
+		<center><h4>Let's face it, you're here for the alcohol. Here's our stock: </h3></center>
+	<div  class="table-responsive" ">
+        <%
+			 foodSet = StatementRecordset1.executeQuery("SELECT * FROM bar.drinks INNER JOIN bar.pricetable on bar.drinks.p_id = bar.pricetable.p_id");
+		%>
+		<hr>
+		<form method="post" action="order.jsp" autocomplete="off">
+			<table class="table">
+              <tr>
+                <th>Choice</th>
+                <th>Name</th>
+                <th>Alcoholic</th>
+                <th>Price</th>
+              </tr>
+					<%
+						while (foodSet.next()) {
+							String id = foodSet.getString("dname");
+					%>
+					<tr>
+						<td><input type="checkbox" name="id" value="<%= id %>"></td>
+						<td>
+							<%= foodSet.getString("dname") %>
+						</td>
+						<td>
+							<%= foodSet.getInt("alchohol") != 0  %> 
+						</td>
+						<td>
+							$<%= foodSet.getInt("price") %>.00
+						</td>
+					</tr>
+					<%
+					}
+					%>
+            </table>
+            <br>
+            <center><input type="submit" value="Order Selection">
+            <input type="reset" value="Clear Selection"></center>
+          </form>
+      </div>
+		
 	</div>
 	</section>
 		
