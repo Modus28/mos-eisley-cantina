@@ -256,34 +256,108 @@
 		</div>
 		<div class="container">
 		<span id='tab-container' style = "display:inline-block;">
+		
 		<!-- Add/Remove Food -->
+		
+		
 			<div class="tab-content">
-					<h1 class="tab" title="Add Items to Menu">Add Foods</h1>
-					<p>This is the content of tab 1 </p>
+					<h1 class="tab" title="Add Food to Menu">Add Food</h1>
+						<form method="post" action="insert.jsp">
+						  <table class="centertable"> 
+							<tr>
+							  <th>Name</th>
+							  <th>Vegan</th>
+							  <th>Gluten-Free</th>
+							  <th>Price</th>
+							</tr>
+							<tr>
+							  <td> <input type="text" name="name" , class="mywidth"><br></td>
+							  <td> <select name="vegan" style="width:150px;  height: 33px;">
+								<option value="1">Yes</option>
+								<option value="0">No</option>
+							</select>
+
+							  <td> <select name="gluten" style="width:150px;  height: 33px;">
+								<option value="1">Yes</option>
+								<option value="0">No</option>
+							</select>
+							  <td> <input type="int" name="price" , class="mywidth"><br></td>
+							</tr>
+						  </table>
+						  <br>
+						  <input type="submit" value="Add Food to Menu">
+						</form>
 			</div>
+			
 			<div class="tab-content">
 					<h1 class="tab" title="title for page 2">Remove Foods</h1>
 					<p>This is the content of tab 2</p>
 			</div>
+			
+			
 		<!-- Add/Remove Drinks -->
 			<div class="tab-content">
 					<h1 class="tab" title="title for page 3">Add Drinks</h1>
-					<p>This is the content of tab 3</p>
+					<form method="post" action="insert.jsp">
+					  <table class="centertable"> 
+						<tr>
+						  <th>Name</th>
+						  <th>Alcoholic</th>
+						  <th>Price</th>
+						</tr>
+						<tr>
+						  <td> <input type="text" name="name" , class="mywidth"><br></td>
+						  <td> <select name="alcoholic" style="width:150px;  height: 33px;">
+							<option value="1">Yes</option>
+							<option value="0">No</option>
+						</select>
+						 <td> <input type="text" name="price" , class="mywidth"><br></td>
+						</tr>
+					  </table>
+					  <br>
+					  <input type="submit" value="Add Drink to Menu">
+					  
+					</form>
 			</div>
+			
 			<div class="tab-content">
 					<h1 class="tab" title="title for page 3">Remove Drinks</h1>
 					<p>This is the content of tab 4</p>
 			</div>
 			
+			
+			
 			<!-- Add/Remove Employees -->
 			<div class="tab-content">
 					<h1 class="tab" title="title for page 3">Add Employees</h1>
-					<p>This is the content of tab 5</p>
+					<form method="post" action="insert.jsp">
+						  <table class="centertable"> 
+							<tr>
+							  <th>Employee ID</th>
+							  <th>Name</th>
+							  <th>Salary</th>
+							  <th>Date Hired</th>
+							   <th>Manager ID</th>
+							</tr>
+							<tr>
+							  <td> <input type="text" name="employeeID" , class="mywidth"><br></td>
+							  <td> <input type="text" name="name" , class="mywidth"><br></td>
+							  <td> <input type="text" name="salary" , class="mywidth"><br></td>
+							  <td> <input type="text" name="date hired" , class="mywidth"><br></td>
+							 <td> <input type="text" name="manager id" , class="mywidth"><br></td>
+							</tr>
+						  </table>
+						  <br>
+						  <input type="submit" value="Add Employee">
+						  
+						</form>
 			</div>
 			<div class="tab-content">
 					<h1 class="tab" title="title for page 3">Remove Employees</h1>
 					<p>This is the content of tab 6</p>
 			</div>
+			
+			
 			
 			<!-- View Purchase History -->
 			<!-- <div class="tab-content">
@@ -292,10 +366,31 @@
 			</div> 
 			-->
 			
+			
+			
 			<!-- Data Analysis -->
 			<div class="tab-content">
 					<h1 class="tab" title="title for page 3">Data Analysis</h1>
-					<p>This is the content of tab 7</p>
+					<form method="post" action="search.jsp">
+					  <table class="centertable"> 
+						<tr>
+						  <th>Data Analysis Type</th>
+						  <th>Parameter</th>
+						</tr>
+						<tr>
+						  <td> <select name="queryType" style="width:350px;  height: 33px;">
+							<option value="0">All Customers Served by Employee: </option>
+							<option value="1">All Food Cheaper than Price:</option>
+							<option value="2">All Drinks Cheaper than Price:</option>
+							<option value="3">Total Spent on Food by Customer:</option>
+						</select>
+						 <td> <input type="text" name="parameter" , class="mywidth"><br></td>
+						</tr>
+					  </table>
+					  <br>
+					  <input type="submit" value="Return Results">
+					  
+					</form>
 			</div>
 			
 		</span>
