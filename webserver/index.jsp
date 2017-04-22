@@ -128,59 +128,59 @@
 			<h3>The Mos Eisley cantina is a dimly-lit tavern known for its strong drinks, hot tunes, and occasional outbreaks of shocking violence. Most star pilots visiting Tatooine spend their downtime in the cantina, making it an ideal spot to hire a starship's crew. Take a gander at our menu:</h3>
 		</div>
 			<div  class="table-responsive" style = " display:block;overflow-y:scroll; height:400px; ">
-        <%
-			ResultSet foodSet = StatementRecordset1.executeQuery("SELECT * FROM bar.fooditem INNER JOIN bar.pricetable on bar.fooditem.p_id = bar.pricetable.p_id");
-		%>
-		<hr>
-		<form method="post" action="order.jsp" autocomplete="off">
-			<table class="table">
-              <tr>
-                <th>Choice</th>
-                <th>Name</th>
-                <th>Vegan</th>
-                <th>Gluten-Free</th>
-                <th>Price</th>
-              </tr>
-					<%
-						while (foodSet.next()) {
-							String id = foodSet.getString("fname");
-					%>
-							<tr>
-							<td><input type="checkbox" name="id" value="<%= id %>"></td>
-							<td>
-								<%= foodSet.getString("fname") %>
-							</td>
-							<td>
-								<%= foodSet.getInt("vegan") != 0  %> 
-							</td>
-							<td>
-								<%= foodSet.getInt("glutenfree")  != 0 %> 
-							</td>
-							<td>
-								$<%= foodSet.getInt("price") %>.00
-							</td>
-							</tr>
-					<%
-					}
-					%>
-			<tr>
-                <th>Choice</th>
-                <th>Name</th>
-                <th>Vegan</th>
-                <th>Gluten-Free</th>
-                <th>Price</th>
-              </tr>
-            </table>
-            <br>
-            <center><input type="submit" value="Order Selection">
-            <input type="reset" value="Clear Selection"></center>
-          </form>
+			<%
+				ResultSet foodSet = StatementRecordset1.executeQuery("SELECT * FROM bar.fooditem INNER JOIN bar.pricetable on bar.fooditem.p_id = bar.pricetable.p_id");
+			%>
+			<hr>
+			<form method="post" action="order.jsp" autocomplete="off">
+				<table class="table">
+				  <tr>
+					<th>Choice</th>
+					<th>Name</th>
+					<th>Vegan</th>
+					<th>Gluten-Free</th>
+					<th>Price</th>
+				  </tr>
+						<%
+							while (foodSet.next()) {
+								String id = foodSet.getString("fname");
+						%>
+								<tr>
+								<td><input type="checkbox" name="id" value="<%= id %>"></td>
+								<td>
+									<%= foodSet.getString("fname") %>
+								</td>
+								<td>
+									<%= foodSet.getInt("vegan") != 0  %> 
+								</td>
+								<td>
+									<%= foodSet.getInt("glutenfree")  != 0 %> 
+								</td>
+								<td>
+									$<%= foodSet.getInt("price") %>.00
+								</td>
+								</tr>
+						<%
+						}
+						%>
+				<tr>
+					<th>Choice</th>
+					<th>Name</th>
+					<th>Vegan</th>
+					<th>Gluten-Free</th>
+					<th>Price</th>
+				  </tr>
+				</table>
+				<br>
+				<center><input type="submit" value="Order Selection">
+				<input type="reset" value="Clear Selection"></center>
+			  </form>
       </div>
 		
-		<center><h4>Let's face it, you're here for the alcohol. Here's our stock: </h3></center>
-	<div  class="table-responsive" style = " display:block;overflow-y:scroll; height:400px;>
+		<center><h4>You're probably here for the alcohol. Here's our stock: </h3></center>
+	<div  class="table-responsive" style = " display:block;overflow-y:scroll; height:400px;">
         <%
-			 foodSet = StatementRecordset1.executeQuery("SELECT * FROM bar.drinks INNER JOIN bar.pricetable on bar.drinks.p_id = bar.pricetable.p_id");
+			 ResultSet drinkSet = StatementRecordset1.executeQuery("SELECT * FROM bar.drinks INNER JOIN bar.pricetable on bar.drinks.p_id = bar.pricetable.p_id");
 		%>
 		<hr>
 		<form method="post" action="order.jsp" autocomplete="off">
@@ -192,19 +192,19 @@
                 <th>Price</th>
               </tr>
 					<%
-						while (foodSet.next()) {
-							String id = foodSet.getString("dname");
+						while (drinkSet.next()) {
+							String id = drinkSet.getString("dname");
 					%>
 					<tr>
 						<td><input type="checkbox" name="id" value="<%= id %>"></td>
 						<td>
-							<%= foodSet.getString("dname") %>
+							<%= drinkSet.getString("dname") %>
 						</td>
 						<td>
-							<%= foodSet.getInt("alchohol") != 0  %> 
+							<%= drinkSet.getInt("alchohol") != 0  %> 
 						</td>
 						<td>
-							$<%= foodSet.getInt("price") %>.00
+							$<%= drinkSet.getInt("price") %>.00
 						</td>
 					</tr>
 					<%
@@ -291,8 +291,57 @@
 			
 			<div class="tab-content">
 					<h1 class="tab" title="title for page 2">Remove Foods</h1>
-					<p>This is the content of tab 2</p>
-			</div>
+					
+			<div  class="table-responsive" style = " display:block;overflow-y:scroll; height:400px; ">
+			<%
+				ResultSet foodToDelete = StatementRecordset1.executeQuery("SELECT * FROM bar.fooditem INNER JOIN bar.pricetable on bar.fooditem.p_id = bar.pricetable.p_id");
+			%>
+			<form method="post" action="delete.jsp" autocomplete="off">
+				<table class="table">
+				  <tr>
+					<th>Choice</th>
+					<th>Name</th>
+					<th>Vegan</th>
+					<th>Gluten-Free</th>
+					<th>Price</th>
+				  </tr>
+						<%
+							while (foodToDelete.next()) {
+								String id = foodToDelete.getString("fname");
+						%>
+								<tr>
+								<td><input type="checkbox" name="id" value="<%= id %>"></td>
+								<td>
+									<%= foodToDelete.getString("fname") %>
+								</td>
+								<td>
+									<%= foodToDelete.getInt("vegan") != 0  %> 
+								</td>
+								<td>
+									<%= foodToDelete.getInt("glutenfree")  != 0 %> 
+								</td>
+								<td>
+									$<%= foodToDelete.getInt("price") %>.00
+								</td>
+								</tr>
+						<%
+						}
+						%>
+				<tr>
+					<th>Choice</th>
+					<th>Name</th>
+					<th>Vegan</th>
+					<th>Gluten-Free</th>
+					<th>Price</th>
+				  </tr>
+				</table>
+				<br>
+				<center><input type="submit" value="Remove Food From Menu">
+				<input type="reset" value="Clear Selection"></center>
+			  </form>
+				</div>
+	  </div>
+	
 			
 			
 		<!-- Add/Remove Drinks -->
@@ -322,7 +371,49 @@
 			
 			<div class="tab-content">
 					<h1 class="tab" title="title for page 3">Remove Drinks</h1>
-					<p>This is the content of tab 4</p>
+					<div  class="table-responsive" style = " display:block;overflow-y:scroll; height:400px;">
+						<%
+							 ResultSet drinksToDelete = StatementRecordset1.executeQuery("SELECT * FROM bar.drinks INNER JOIN bar.pricetable on bar.drinks.p_id = bar.pricetable.p_id");
+						%>
+						<form method="post" action="delete.jsp" autocomplete="off">
+							<table class="table">
+							  <tr>
+								<th>Choice</th>
+								<th>Name</th>
+								<th>Alcoholic</th>
+								<th>Price</th>
+							  </tr>
+									<%
+										while (drinksToDelete.next()) {
+											String id = drinksToDelete.getString("dname");
+									%>
+									<tr>
+										<td><input type="checkbox" name="id" value="<%= id %>"></td>
+										<td>
+											<%= drinksToDelete.getString("dname") %>
+										</td>
+										<td>
+											<%= drinksToDelete.getInt("alchohol") != 0  %> 
+										</td>
+										<td>
+											$<%= drinksToDelete.getInt("price") %>.00
+										</td>
+									</tr>
+									<%
+									}
+									%>
+								<tr>
+								<th>Choice</th>
+								<th>Name</th>
+								<th>Alcoholic</th>
+								<th>Price</th>
+							  </tr>
+							</table>
+							<br>
+							<center><input type="submit" value="Remove Drinks from Menu">
+							<input type="reset" value="Clear Selection"></center>
+						  </form>
+					  </div>
 			</div>
 			
 			
@@ -354,7 +445,59 @@
 			</div>
 			<div class="tab-content">
 					<h1 class="tab" title="title for page 3">Remove Employees</h1>
-					<p>This is the content of tab 6</p>
+					<div  class="table-responsive" style = " display:block;overflow-y:scroll; height:400px;">
+						<%
+							 ResultSet employeesToDelete = StatementRecordset1.executeQuery("SELECT * FROM bar.employee");
+						%>
+						<form method="post" action="delete.jsp" autocomplete="off">
+							<table class="table">
+							  <tr>
+								<th>Choice</th>
+								<th>ID</th>
+								<th>Name</th>
+								<th>Salary</th>
+								<th>Date Hired</th>
+								<th>Manager ID</th>
+							  </tr>
+									<%
+										while (employeesToDelete.next()) {
+											int id = employeesToDelete.getInt("e_id");
+									%>
+									<tr>
+										<td><input type="checkbox" name="id" value="<%= id %>"></td>
+										<td>
+											<%= employeesToDelete.getInt("e_id") %>
+										</td>
+										<td>
+											<%= employeesToDelete.getString("ename") %>
+										</td>
+										<td>
+											$<%= employeesToDelete.getInt("salary")  %>.00 / year
+										</td>
+										<td>
+											<%= employeesToDelete.getString("datehired") %>
+										</td>
+										<td>
+											<%= employeesToDelete.getInt("m_id") %>
+										</td>
+									</tr>
+									<%
+									}
+									%>
+								<tr>
+								<th>Choice</th>
+								<th>ID</th>
+								<th>Name</th>
+								<th>Salary</th>
+								<th>Date Hired</th>
+								<th>Manager ID</th>
+							  </tr>
+							</table>
+							<br>
+							<center><input type="submit" value="Fire Employee">
+							<input type="reset" value="Clear Selection"></center>
+						  </form>
+					  </div>
 			</div>
 			
 			

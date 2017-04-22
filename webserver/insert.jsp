@@ -48,7 +48,7 @@
 		out.println("Food added.");
 	}
 	catch (Exception e){
-		out.println("You tried to add an entry that already exists, or no food at all!");
+		out.println("You tried to add an entry that already exists, or nothing at all!");
 	}
   %>
   <p></p>

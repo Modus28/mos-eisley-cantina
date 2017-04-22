@@ -23,7 +23,7 @@
 </head>
 <center>
 <body>
-  <h1>Your order has been placed! Don't worry, we'll find you. </h1>
+  <h1>Your order has been placed! Walk up to the bar and talk to Bob. </h1>
 
 <p></p>
 
