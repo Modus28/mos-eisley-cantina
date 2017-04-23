@@ -80,7 +80,7 @@
 		out.println("Error!");
 	}
 %>
-	<div  class="table-responsive" style = " display:block;overflow-y:scroll; height:400px;">
+	<div  class="table-responsive" style = " display:block;overflow-y:scroll; height:700px;">
  
 			<table class="table">
               <tr>

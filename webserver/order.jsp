@@ -6,7 +6,7 @@
 <head>
   <title>Mos Eisley Cantina </title>
 
-  
+
   <meta name="description" content="EECS 341 Final project">
 <meta name="author" content="Daniel Grigsby">
 

@@ -24,31 +24,90 @@
 <body>
   <h1>Your request was processed. </h1>
   <!-- Database Connection -->
-  <%@page language="java" import="java.sql.*; import java.text.SimpleDateFormat; import java.util.Date;"%> 
+  <%@page language="java" import="java.sql.*; import java.util.Random; import java.io.*;"%>
   <%
 	final String driver = "com.mysql.jdbc.Driver";
 	Driver DriverRecordset1 = (Driver)Class.forName(driver).newInstance();
 	final String server
-            = "jdbc:mysql://localhost:3306/mss?" +
+            = "jdbc:mysql://localhost:3306/bar?" +
             "user=root&password=UnforgettablePassword" +
             "&useSSL=false";
 	Connection con = DriverManager.getConnection(server);
 
-  // Insert all values specified in form
-	PreparedStatement addFood = con.prepareStatement("INSERT INTO MOVIESTAR (starName,gender,address,birthdate) VALUES(?,?,?,?)");
-	try {
-		addFood.setString(1, request.getParameter("name"));
-		addFood.setString(2, request.getParameter("vegan"));
-		addFood.setString(3, request.getParameter("gluten"));
-		String stringDate = request.getParameter("price");
-		Date birthDate = new SimpleDateFormat("yyyy-MM-dd").parse(stringDate);
+// Preset insertion strings
+String insertPriceString = "INSERT INTO `bar`.`pricetable`VALUES (?,?)";
+String insertFoodString = "INSERT INTO `bar`.`fooditem` VALUES (?,?,?,?,?)";
+String insertDrinkString = "INSERT INTO `bar`.`drinks` VALUES (?,?,?,?)";
+String insertEmployeeString = "INSERT INTO `bar`.`employee` VALUES (?,?,?,?,?)";
+
+
+	/* 		Date birthDate = new SimpleDateFormat("yyyy-MM-dd").parse(stringDate);
 		java.sql.Date timeStamp = new java.sql.Date(birthDate.getTime());
-		addFood.setDate(4,timeStamp);
-		addFood.executeUpdate();
-		out.println("Food added.");
+		addFood.setDate(4,timeStamp); */
+
+
+  // Insert all values specified in form
+	try {
+    // Get insert type
+    String insertType = request.getParameter("itemToAdd");
+    PreparedStatement insertStatement = null;
+    PreparedStatement insertPrice = null;
+    // Random Price Generation
+    Random ran = new Random();
+    int priceID = ran.nextInt(99998) + 1;
+    int entryID = ran.nextInt(99998) + 1;
+
+    // Insert based on insert type
+    switch(insertType) {
+      case "employee":
+        // Prepare Employee Insert
+        insertStatement = con.prepareStatement(insertEmployeeString);
+        insertStatement.setInt(1,Integer.parseInt(request.getParameter("employeeID")));
+        insertStatement.setString(2, request.getParameter("name"));
+        insertStatement.setInt(3,Integer.parseInt(request.getParameter("salary")));
+        insertStatement.setString(4,request.getParameter("datehired"));
+        insertStatement.setInt(5, Integer.parseInt(request.getParameter("managerid")));
+        break;
+      case "food":
+        // Prepare Price Insert
+        insertPrice = con.prepareStatement(insertPriceString);
+        insertPrice.setInt(1, priceID);
+        int fPrice = Integer.parseInt(request.getParameter("price"));
+        insertPrice.setInt(2, fPrice);
+        insertPrice.executeUpdate();
+        // Prepare Food Insert
+        insertStatement = con.prepareStatement(insertFoodString);
+        insertStatement.setInt(1, entryID);
+        insertStatement.setString(2, request.getParameter("name"));
+        insertStatement.setInt(3, priceID);
+        insertStatement.setInt(4, Integer.parseInt(request.getParameter("vegan")));
+        insertStatement.setInt(5, Integer.parseInt(request.getParameter("gluten")));
+
+        break;
+      case "drink":
+        // Prepare Price Insert
+        insertPrice = con.prepareStatement(insertPriceString);
+        insertPrice.setInt(1, priceID);
+        int dPrice = Integer.parseInt(request.getParameter("price"));
+        insertPrice.setInt(2, dPrice);
+        insertPrice.executeUpdate();
+        // Prepare Drink Insert
+        insertStatement = con.prepareStatement(insertDrinkString);
+        insertStatement.setInt(1, entryID);
+        insertStatement.setString(2, request.getParameter("name"));
+        insertStatement.setInt(3, priceID);
+        insertStatement.setInt(4, Integer.parseInt(request.getParameter("alcoholic")));
+        break;
+    }
+    insertStatement.executeUpdate();
+	out.println("Entry: " + insertType + " was added successfully.");
 	}
 	catch (Exception e){
-		out.println("You tried to add an entry that already exists, or nothing at all!");
+    StringWriter sw = new StringWriter();
+    e.printStackTrace(new PrintWriter(sw));
+    String exceptionAsString = sw.toString();
+    out.println(exceptionAsString);
+		out.println("You tried to add an entry that already exists, or mixed the types up");
 	}
   %>
   <p></p>
