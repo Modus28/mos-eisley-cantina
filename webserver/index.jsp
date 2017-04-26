@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+<!-- EECS 341 Spring 2017 Final Project - Daniel Grigsby -->
+<!-- Daniel Grigsby, Dominique Owens, Lee Kelvin, Dina Benayad-Cherif -->
+
 <!--[if lt IE 7 ]> <html class="ie ie6 no-js" lang="en"> <![endif]-->
 <!--[if IE 7 ]>    <html class="ie ie7 no-js" lang="en"> <![endif]-->
 <!--[if IE 8 ]>    <html class="ie ie8 no-js" lang="en"> <![endif]-->
@@ -41,19 +44,19 @@
 <body>
 <!--wrapper start-->
 <div class="wrapper" id="wrapper">
-	
+
 	<!--header-->
 	<header>
-	<div class="banner row" id="banner">		
+	<div class="banner row" id="banner">
 		<div class="parallax text-center" style="background-image: url(http://i.imgur.com/jv4dvT9.jpg);">
 			<div class="parallax-pattern-overlay">
 				<div class="container text-center" style="height:870px;padding-top:170px;">
 					<a href="#"><img id="site-title" class=" wow fadeInDown" wow-data-delay="0.0s" wow-data-duration="0.9s" src="img/starwarslogowhite.png" alt="logo"/></a>
-					<h2 class="intro wow zoomIn" wow-data-delay="0.4s" wow-data-duration="0.9s">This IS The Bar You're Looking For</h2> 
+					<h2 class="intro wow zoomIn" wow-data-delay="0.4s" wow-data-duration="0.9s">This IS The Bar You're Looking For</h2>
 				</div>
 			</div>
 		</div>
-	</div>	
+	</div>
 	<div class="menu">
 		<div class="navbar-wrapper">
 			<div class="container">
@@ -77,9 +80,9 @@
 				</div>
 			</div>
 		</div>
-	</div>	
+	</div>
 	</header>
-		
+
 	<!--about us-->
 	<section class="aboutus" id="aboutus">
 	<div class="container">
@@ -88,7 +91,7 @@
 			<h2>Our Founders</h2>
 			<img class="dividerline" src="img/sep.png" alt="">
 			<h3></h3>
-		</div>			
+		</div>
 		<div class="row">
 			<div class="col-md-6">
 				<div class="papers text-center">
@@ -97,7 +100,7 @@
 					<h4 class="notopmarg nobotmarg">Anakin Skywalker</h4>
 					<p>
 						I don't like sand. It's coarse and rough and irritating and it gets everywhere. Not like here. Here everything is soft and smooth. </p>
-						
+
 						<p>I killed them. I killed them all. They're dead, every single one of them. And not just the men, but the women and the children, too. They're like animals, and I slaughtered them like animals. I hate them!
 					</p>
 				</div>
@@ -117,7 +120,7 @@
 		</div>
 	</div>
 	</section>
-	
+
 	<!--specialties-->
 	<section class="specialties" id="specialties">
 	<div class="container">
@@ -143,7 +146,7 @@
 				  </tr>
 						<%
 							while (foodSet.next()) {
-								String id = foodSet.getString("fname");
+								String id = foodSet.getString("f_id");
 						%>
 								<tr>
 								<td><input type="checkbox" name="id" value="<%= id %>"></td>
@@ -151,10 +154,10 @@
 									<%= foodSet.getString("fname") %>
 								</td>
 								<td>
-									<%= foodSet.getInt("vegan") != 0  %> 
+									<%= foodSet.getInt("vegan") != 0  %>
 								</td>
 								<td>
-									<%= foodSet.getInt("glutenfree")  != 0 %> 
+									<%= foodSet.getInt("glutenfree")  != 0 %>
 								</td>
 								<td>
 									$<%= foodSet.getInt("price") %>.00
@@ -163,7 +166,7 @@
 						<%
 						}
 						%>
-				<tr>
+				  <tr>
 					<th>Choice</th>
 					<th>Name</th>
 					<th>Vegan</th>
@@ -176,8 +179,9 @@
 				<input type="reset" value="Clear Selection"></center>
 			  </form>
       </div>
-		
-		<center><h4>You're probably here for the alcohol. Here's our stock: </h3></center>
+		<br></br>
+		<center><h4>You're probably here for the alcohol. Here's our stock: </h4></center>
+
 	<div  class="table-responsive" style = " display:block;overflow-y:scroll; height:400px;">
         <%
 			 ResultSet drinkSet = StatementRecordset1.executeQuery("SELECT * FROM bar.drinks INNER JOIN bar.pricetable on bar.drinks.p_id = bar.pricetable.p_id");
@@ -193,7 +197,7 @@
               </tr>
 					<%
 						while (drinkSet.next()) {
-							String id = drinkSet.getString("dname");
+							String id = drinkSet.getString("d_id");
 					%>
 					<tr>
 						<td><input type="checkbox" name="id" value="<%= id %>"></td>
@@ -201,7 +205,7 @@
 							<%= drinkSet.getString("dname") %>
 						</td>
 						<td>
-							<%= drinkSet.getInt("alchohol") != 0  %> 
+							<%= drinkSet.getInt("alchohol") != 0  %>
 						</td>
 						<td>
 							$<%= drinkSet.getInt("price") %>.00
@@ -222,12 +226,12 @@
             <input type="reset" value="Clear Selection"></center>
           </form>
       </div>
-	
-		
+
+
 	</div>
 	</section>
-		
-	
+
+
 	<!--feedback-->
 	<section class="feedback" id="feedback">
 	<div class="container w960">
@@ -239,9 +243,11 @@
 			 While we can't list them all, here are a few of the many five star reviews we've had.</h3>
 		</div>
 		<div class="row">
-		<blockquote>Now, you will pay the price for your lack of vision!   
-[shoots more Force lighting] " <cite>The Emperor, On receiving his order<br/><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i></cite> </blockquote>
-		<blockquote>Weesa has munchy here a few times while onda island visit fami and friends.da servers here is just bombad and has great memories it seems.weesa sat onda ocean front patio and enjoy da view with weesa delicious wine and munchy.must try!" <cite>Jar Jar Binks, A Cocktail Party<br/><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i></cite> </blockquote>
+			<blockquote>Now, you will pay the price for your lack of vision!
+				[shoots more Force lighting] " <cite>The Emperor, On receiving his order<br/><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i></cite>
+			</blockquote>
+			<blockquote> Weesa has munchy here a few times while onda island visit fami and friends.da servers here is just bombad and has great memories it seems.weesa sat onda ocean front patio and enjoy da view with weesa 	delicious wine and munchy.must try!" <cite>Jar Jar Binks, A Cocktail Party<br/><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i></cite>
+			</blockquote>
 		</div>
 		</div>
 
@@ -256,14 +262,12 @@
 		</div>
 		<div class="container">
 		<span id='tab-container' style = "display:inline-block;">
-		
+
 		<!-- Add/Remove Food -->
-		
-		
 			<div class="tab-content">
 					<h1 class="tab" title="Add Food to Menu">Add Food</h1>
 						<form method="post" action="insert.jsp">
-						  <table class="centertable"> 
+						  <table class="centertable">
 							<tr>
 							  <th>Name</th>
 							  <th>Vegan</th>
@@ -281,17 +285,18 @@
 								<option value="1">Yes</option>
 								<option value="0">No</option>
 							</select>
-							  <td> <input type="int" name="price" , class="mywidth"><br></td>
+							  <td> <input type="text" name="price" , class="mywidth"><br></td>
 							</tr>
 						  </table>
 						  <br>
+                <input type="hidden" name="itemToAdd" value="food">
 						  <input type="submit" value="Add Food to Menu">
 						</form>
 			</div>
-			
+
 			<div class="tab-content">
 					<h1 class="tab" title="title for page 2">Remove Foods</h1>
-					
+
 			<div  class="table-responsive" style = " display:block;overflow-y:scroll; height:400px; ">
 			<%
 				ResultSet foodToDelete = StatementRecordset1.executeQuery("SELECT * FROM bar.fooditem INNER JOIN bar.pricetable on bar.fooditem.p_id = bar.pricetable.p_id");
@@ -307,7 +312,7 @@
 				  </tr>
 						<%
 							while (foodToDelete.next()) {
-								String id = foodToDelete.getString("fname");
+								String id = foodToDelete.getString("f_id");
 						%>
 								<tr>
 								<td><input type="checkbox" name="id" value="<%= id %>"></td>
@@ -315,10 +320,10 @@
 									<%= foodToDelete.getString("fname") %>
 								</td>
 								<td>
-									<%= foodToDelete.getInt("vegan") != 0  %> 
+									<%= foodToDelete.getInt("vegan") != 0  %>
 								</td>
 								<td>
-									<%= foodToDelete.getInt("glutenfree")  != 0 %> 
+									<%= foodToDelete.getInt("glutenfree")  != 0 %>
 								</td>
 								<td>
 									$<%= foodToDelete.getInt("price") %>.00
@@ -337,18 +342,19 @@
 				</table>
 				<br>
 				<center><input type="submit" value="Remove Food From Menu">
+          <input type="hidden" name="itemToDelete" value="food">
 				<input type="reset" value="Clear Selection"></center>
 			  </form>
 				</div>
 	  </div>
-	
-			
-			
+
+
+
 		<!-- Add/Remove Drinks -->
 			<div class="tab-content">
 					<h1 class="tab" title="title for page 3">Add Drinks</h1>
 					<form method="post" action="insert.jsp">
-					  <table class="centertable"> 
+					  <table class="centertable">
 						<tr>
 						  <th>Name</th>
 						  <th>Alcoholic</th>
@@ -365,10 +371,10 @@
 					  </table>
 					  <br>
 					  <input type="submit" value="Add Drink to Menu">
-					  
+					  <input type="hidden" name="itemToAdd" value="drink">
 					</form>
 			</div>
-			
+
 			<div class="tab-content">
 					<h1 class="tab" title="title for page 3">Remove Drinks</h1>
 					<div  class="table-responsive" style = " display:block;overflow-y:scroll; height:400px;">
@@ -385,7 +391,7 @@
 							  </tr>
 									<%
 										while (drinksToDelete.next()) {
-											String id = drinksToDelete.getString("dname");
+											String id = drinksToDelete.getString("d_id");
 									%>
 									<tr>
 										<td><input type="checkbox" name="id" value="<%= id %>"></td>
@@ -393,7 +399,7 @@
 											<%= drinksToDelete.getString("dname") %>
 										</td>
 										<td>
-											<%= drinksToDelete.getInt("alchohol") != 0  %> 
+											<%= drinksToDelete.getInt("alchohol") != 0  %>
 										</td>
 										<td>
 											$<%= drinksToDelete.getInt("price") %>.00
@@ -411,18 +417,19 @@
 							</table>
 							<br>
 							<center><input type="submit" value="Remove Drinks from Menu">
+                <input type="hidden" name="itemToDelete" value="drink">
 							<input type="reset" value="Clear Selection"></center>
 						  </form>
 					  </div>
 			</div>
-			
-			
-			
+
+
+
 			<!-- Add/Remove Employees -->
 			<div class="tab-content">
 					<h1 class="tab" title="title for page 3">Add Employees</h1>
 					<form method="post" action="insert.jsp">
-						  <table class="centertable"> 
+						  <table class="centertable">
 							<tr>
 							  <th>Employee ID</th>
 							  <th>Name</th>
@@ -434,15 +441,17 @@
 							  <td> <input type="text" name="employeeID" , class="mywidth"><br></td>
 							  <td> <input type="text" name="name" , class="mywidth"><br></td>
 							  <td> <input type="text" name="salary" , class="mywidth"><br></td>
-							  <td> <input type="text" name="date hired" , class="mywidth"><br></td>
-							 <td> <input type="text" name="manager id" , class="mywidth"><br></td>
+							  <td> <input type="text" name="datehired" , class="mywidth"><br></td>
+							 <td> <input type="text" name="managerid" , class="mywidth"><br></td>
 							</tr>
 						  </table>
 						  <br>
+                <input type="hidden" name="itemToAdd" value="employee">
 						  <input type="submit" value="Add Employee">
-						  
+
 						</form>
 			</div>
+
 			<div class="tab-content">
 					<h1 class="tab" title="title for page 3">Remove Employees</h1>
 					<div  class="table-responsive" style = " display:block;overflow-y:scroll; height:400px;">
@@ -495,36 +504,37 @@
 							</table>
 							<br>
 							<center><input type="submit" value="Fire Employee">
+                <input type="hidden" name="itemToDelete" value="employee">
 							<input type="reset" value="Clear Selection"></center>
 						  </form>
 					  </div>
 			</div>
-			
-			
-			
+
+
+
 			<!-- View Purchase History -->
 			<!-- <div class="tab-content">
 					<h1 class="tab" title="title for page 3">View Purchases</h1>
 					<p>This is the content of tab 6.5 on container 1</p>
-			</div> 
+			</div>
 			-->
-			
-			
-			
+
+
+
 			<!-- Data Analysis -->
 			<div class="tab-content">
 					<h1 class="tab" title="title for page 3">Data Analysis</h1>
 					<form method="post" action="search.jsp">
-					  <table class="centertable"> 
+					  <table class="centertable">
 						<tr>
 						  <th>Data Analysis Type</th>
 						  <th>Parameter</th>
 						</tr>
 						<tr>
 						  <td> <select name="queryType" style="width:350px;  height: 33px;">
-							<option value="0">All Customers Served by Employee: </option>
 							<option value="1">All Food Cheaper than Price:</option>
 							<option value="2">All Drinks Cheaper than Price:</option>
+							<option value="0">All Customers Served by Employee: </option>
 							<option value="3">Total Spent on Food by Customer:</option>
 						</select>
 						 <td> <input type="text" name="parameter" , class="mywidth"><br></td>
@@ -532,15 +542,15 @@
 					  </table>
 					  <br>
 					  <input type="submit" value="Return Results">
-					  
+
 					</form>
 			</div>
-			
+
 		</span>
 		</div>
 	</section>
-	
-	
+
+
 	<!--feedback-->
 	<section class="contact" id="contact">
 	<div class="container">
@@ -553,7 +563,7 @@
 		</div>
 	</div>
 	</section>
-  
+
 	<!--footer-->
 	<section class="footer" id="footer">
 	<p class="text-center">
@@ -565,7 +575,7 @@
 		</ul>
 	</div>
 	</section>
-	
+
 </div><!--wrapper end-->
 
 <!--Javascripts-->

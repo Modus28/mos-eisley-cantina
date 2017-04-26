@@ -4,7 +4,7 @@
 <html>
 
 <head>
-    
+
   <meta name="description" content="EECS 341 Final project">
 <meta name="author" content="Daniel Grigsby">
 
@@ -26,31 +26,52 @@
   <h1>Your request has been processed. </h1>
 
   <!-- Database Connection -->
-  <%@page language="java" import="java.sql.*;"%>
+  <%@page language="java" import="java.sql.*; import java.io.*;"%>
   <%
 	final String driver = "com.mysql.jdbc.Driver";
 	Driver DriverRecordset1 = (Driver)Class.forName(driver).newInstance();
 	final String server
-            = "jdbc:mysql://localhost:3306/mss?" +
+            = "jdbc:mysql://localhost:3306/bar?" +
             "user=root&password=UnforgettablePassword" +
             "&useSSL=false";
 	Connection con = DriverManager.getConnection(server);
+  // Preset deleteion strings
+  String deleteFoodString = "DELETE FROM `bar`.`fooditem` WHERE f_id = ?";
+  String deleteDrinkString = "DELETE FROM `bar`.`drinks` WHERE d_id = ?";
+  String deleteEmployeeString = "DELETE FROM `bar`.`employee` WHERE e_id = ?";
 
-  // Delete food with prepared statement 
-	try {
-		String[] toDelete = request.getParameterValues("id");
-		for(String toDel : toDelete) {
-			PreparedStatement deleteFood = con.prepareStatement("DELETE FROM MOVIESTAR WHERE starName = ?");
-			deleteFood.setString(1, toDel);
-			deleteFood.executeUpdate();
-		}
-		out.println("Food deleted.");
-	}
-	catch (Exception e){
-		out.println("You tried to delete something that's already gone.");
-	}
-%>
-<p></p>
+    // Delete all values specified in form
+  	try {
+      // Get delete type
+      String deleteType = request.getParameter("itemToDelete");
+      PreparedStatement deleteStatement = null;
+
+
+      // Delete based on delete type
+      switch(deleteType) {
+        case "employee":
+          deleteStatement = con.prepareStatement(deleteEmployeeString);
+          break;
+        case "food":
+          deleteStatement = con.prepareStatement(deleteFoodString);
+          break;
+        case "drink":
+          deleteStatement = con.prepareStatement(deleteDrinkString);
+          break;
+      }
+      deleteStatement.setInt(1,Integer.parseInt(request.getParameter("id")));
+      deleteStatement.executeUpdate();
+  	out.println("Entry in " + deleteType + " was deleted successfully.");
+  	}
+  	catch (Exception e){
+      StringWriter sw = new StringWriter();
+      e.printStackTrace(new PrintWriter(sw));
+      String exceptionAsString = sw.toString();
+      out.println(exceptionAsString);
+  		out.println("You tried to delete something that someone else just deleted!");
+  	}
+    %>
+    <p></p>
 
   <input type="button" class="button" style = "width:250px;height:40px;"  value="Go back to previous page" />
 

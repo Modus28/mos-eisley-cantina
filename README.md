@@ -1,4 +1,4 @@
-# EECS 341 Final Project: Bar Database
+# EECS 341 Final Project: Mos Eisley Cantina
 This project implements a full stack application to manage and display the menus and functions of a bar through a website, themed as the Mos Eisley Cantina from Star Wars. 
 
 ## Group Members:
@@ -15,6 +15,10 @@ This project implements a full stack application to manage and display the menus
 * Java JDK 8: http://www.oracle.com/technetwork/java/javase/downloads/index.html
 
 ## Licensing
-* All open source libraries are used under the MIT or Unlicense Licenses
+* All used libraries/theming are open source and public under the MIT or GPL Licenses
 * The authors are credited in the header of their file names, generally in webserver/js and webserver/css 
-* Notable libraries include Bootstrap, JQuery, Parallax
+#### A full list of sources:
+* jQuery by jQuery Foundation, Bootstrap by Twitter, Parallax by Ian Lunn, Tabs by Rob Allen
+* SmoothScroll by Balazs Galambosi, Leroy by Wowthemes, Wow by Mattieu Aussaguel
+* Classie by Dustin Diaz, ColorFinder by Pieroxy, Easing by George Smith 
+* Masonry & Imgloaded by David DeSandro, Modernizr by Paul Irish
