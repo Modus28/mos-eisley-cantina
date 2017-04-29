@@ -90,3 +90,5 @@ insert into foodpurchase(billNum, f_id, qty) values (11100, 11, 3);
 
 insert into foodpurchase(billNum, f_id, qty) values (11101, 10, 1);
 */
+
+insert into drinkpurchase(billNum, d_id, qty) values (1001, 6, 1);
