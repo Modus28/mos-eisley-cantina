@@ -134,7 +134,7 @@ UNLOCK TABLES;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-Trigger CheckIfCustomerIsOver21 before insert on drinkpurchase
+CREATE Trigger CheckIfCustomerIsOver21 before insert on drinkpurchase
 for each row 
 begin
 	if ((SELECT Drinks.alchohol from bar.Drinks WHERE NEW.d_id = Drinks.d_id) = 1 and (SELECT age from Customer, Bill Where Bill.billNum = New.billNum and Bill.c_id = Customer.c_id) < 21)
@@ -255,6 +255,64 @@ LOCK TABLES `priceTable` WRITE;
 INSERT INTO `priceTable` VALUES (0,0),(1,1),(2,2),(3,5),(4,7),(5,10),(6,12),(7,15),(8,17),(9,20);
 /*!40000 ALTER TABLE `priceTable` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Dumping routines for database 'bar'
+--
+/*!50003 DROP PROCEDURE IF EXISTS `dynamic1` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `dynamic1`(c_id integer(5))
+BEGIN
+SET @q1 =CONCAT("select bill.billNum, sum(priceTable.price * foodpurchase.qty)
+from foodpurchase, bill, fooditem, priceTable
+where foodpurchase.billNum = bill.billNum
+and bill.c_id =", c_id," and fooditem.f_id = foodpurchase.f_id
+and fooditem.p_id = priceTable.p_id
+group by(bill.billNum)");
+Prepare stmt1 From @q1;
+execute stmt1;
+deallocate prepare stmt1;
+End ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `sumfoodpurchaseofcustomer` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `sumfoodpurchaseofcustomer`(c_id integer(5))
+BEGIN
+SET @q1 =CONCAT("select bill.billNum, sum(priceTable.price * foodpurchase.qty)
+from foodpurchase, bill, fooditem, priceTable
+where foodpurchase.billNum = bill.billNum
+and bill.c_id =", c_id," and fooditem.f_id = foodpurchase.f_id
+and fooditem.p_id = priceTable.p_id
+group by(bill.billNum)");
+Prepare stmt1 From @q1;
+execute stmt1;
+deallocate prepare stmt1;
+End ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -265,4 +323,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-04-29 15:05:53
+-- Dump completed on 2017-04-29 15:28:20
