@@ -71,7 +71,7 @@
 										<li class="menuItem"><a href="#specialties">Specialties</a></li>
 										<li class="menuItem"><a href="#feedback">Feedback</a></li>
 										<li class="menuItem"><a href="#administrative">Admin</a></li>
-										<li class="menuItem"><a href="#contact">Contact </a></li>
+										<li class="menuItem"><a href="#contact">Info </a></li>
 									</ul>
 								</div>
 							</div>
@@ -289,7 +289,7 @@
 							</tr>
 						  </table>
 						  <br>
-                <input type="hidden" name="itemToAdd" value="food">
+                <input type="hidden" name="itemToAdd" value="0">
 						  <input type="submit" value="Add Food to Menu">
 						</form>
 			</div>
@@ -342,7 +342,7 @@
 				</table>
 				<br>
 				<center><input type="submit" value="Remove Food From Menu">
-          <input type="hidden" name="itemToDelete" value="food">
+          <input type="hidden" name="itemToDelete" value="0">
 				<input type="reset" value="Clear Selection"></center>
 			  </form>
 				</div>
@@ -371,7 +371,7 @@
 					  </table>
 					  <br>
 					  <input type="submit" value="Add Drink to Menu">
-					  <input type="hidden" name="itemToAdd" value="drink">
+					  <input type="hidden" name="itemToAdd" value="1">
 					</form>
 			</div>
 
@@ -417,7 +417,7 @@
 							</table>
 							<br>
 							<center><input type="submit" value="Remove Drinks from Menu">
-                <input type="hidden" name="itemToDelete" value="drink">
+                <input type="hidden" name="itemToDelete" value="1">
 							<input type="reset" value="Clear Selection"></center>
 						  </form>
 					  </div>
@@ -446,7 +446,7 @@
 							</tr>
 						  </table>
 						  <br>
-                <input type="hidden" name="itemToAdd" value="employee">
+                <input type="hidden" name="itemToAdd" value="2">
 						  <input type="submit" value="Add Employee">
 
 						</form>
@@ -504,7 +504,7 @@
 							</table>
 							<br>
 							<center><input type="submit" value="Fire Employee">
-                <input type="hidden" name="itemToDelete" value="employee">
+                <input type="hidden" name="itemToDelete" value="2">
 							<input type="reset" value="Clear Selection"></center>
 						  </form>
 					  </div>
@@ -556,8 +556,9 @@
 	<div class="container">
 		<div class="heading">
 				<img class="dividerline" src="img/sep.png" alt="">
-				<h2>Contact Us</h2>
+				<h2>Info</h2>
 				<img class="dividerline" src="img/sep.png" alt="">
+				<h3> Here is a report on how we designed this project: </h3>
 				<h3> Click one of our social links below.<br>
 				 You can find coupons on our Github page! Don't miss out! </h3>
 		</div>
@@ -578,7 +579,7 @@
 
 </div><!--wrapper end-->
 
-<!--Javascripts-->
+<!-- Open Source Javascript Library Imports-->
 <script src="js/jquery.js"></script>
 <script src="js/modernizr.js"></script>
 <script src="js/bootstrap.js"></script>
@@ -591,8 +592,6 @@
 <script src="js/imgloaded.js"></script>
 <script src="js/classie.js"></script>
 <script src="js/colorfinder.js"></script>
-<script src="js/gridscroll.js"></script>
-<script src="js/contact.js"></script>
 <script src="js/common.js"></script>
 <script src="js/tabs.js"></script>
 

@@ -49,7 +49,7 @@ String insertEmployeeString = "INSERT INTO `bar`.`employee` VALUES (?,?,?,?,?)";
   // Insert all values specified in form
 	try {
     // Get insert type
-    String insertType = request.getParameter("itemToAdd");
+    int insertType = Integer.parseInt(request.getParameter("itemToAdd"));
     PreparedStatement insertStatement = null;
     PreparedStatement insertPrice = null;
     // Random Price Generation
@@ -59,7 +59,7 @@ String insertEmployeeString = "INSERT INTO `bar`.`employee` VALUES (?,?,?,?,?)";
 
     // Insert based on insert type
     switch(insertType) {
-      case "employee":
+      case 2:
         // Prepare Employee Insert
         insertStatement = con.prepareStatement(insertEmployeeString);
         insertStatement.setInt(1,Integer.parseInt(request.getParameter("employeeID")));
@@ -68,7 +68,7 @@ String insertEmployeeString = "INSERT INTO `bar`.`employee` VALUES (?,?,?,?,?)";
         insertStatement.setString(4,request.getParameter("datehired"));
         insertStatement.setInt(5, Integer.parseInt(request.getParameter("managerid")));
         break;
-      case "food":
+      case 0:
         // Prepare Price Insert
         insertPrice = con.prepareStatement(insertPriceString);
         insertPrice.setInt(1, priceID);
@@ -84,7 +84,7 @@ String insertEmployeeString = "INSERT INTO `bar`.`employee` VALUES (?,?,?,?,?)";
         insertStatement.setInt(5, Integer.parseInt(request.getParameter("gluten")));
 
         break;
-      case "drink":
+      case 1:
         // Prepare Price Insert
         insertPrice = con.prepareStatement(insertPriceString);
         insertPrice.setInt(1, priceID);
@@ -100,7 +100,7 @@ String insertEmployeeString = "INSERT INTO `bar`.`employee` VALUES (?,?,?,?,?)";
         break;
     }
     insertStatement.executeUpdate();
-	out.println("Entry: " + insertType + " was added successfully.");
+	out.println("Added successfully.");
 	}
 	catch (Exception e){
     StringWriter sw = new StringWriter();

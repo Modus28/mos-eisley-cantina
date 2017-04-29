@@ -43,25 +43,25 @@
     // Delete all values specified in form
   	try {
       // Get delete type
-      String deleteType = request.getParameter("itemToDelete");
+      int deleteType = Integer.parseInt(request.getParameter("itemToDelete"));
       PreparedStatement deleteStatement = null;
 
 
       // Delete based on delete type
       switch(deleteType) {
-        case "employee":
+        case 2:
           deleteStatement = con.prepareStatement(deleteEmployeeString);
           break;
-        case "food":
+        case 0:
           deleteStatement = con.prepareStatement(deleteFoodString);
           break;
-        case "drink":
+        case 1:
           deleteStatement = con.prepareStatement(deleteDrinkString);
           break;
       }
       deleteStatement.setInt(1,Integer.parseInt(request.getParameter("id")));
       deleteStatement.executeUpdate();
-  	out.println("Entry in " + deleteType + " was deleted successfully.");
+  	out.println("Deleted successfully.");
   	}
   	catch (Exception e){
       StringWriter sw = new StringWriter();
