@@ -135,7 +135,6 @@
 				ResultSet foodSet = StatementRecordset1.executeQuery("SELECT * FROM bar.fooditem INNER JOIN bar.pricetable on bar.fooditem.p_id = bar.pricetable.p_id");
 			%>
 			<hr>
-			<form method="post" action="order.jsp" autocomplete="off">
 				<table class="table">
 				  <tr>
 					<th>Choice</th>
@@ -175,9 +174,6 @@
 				  </tr>
 				</table>
 				<br>
-				<center><input type="submit" value="Order Selection">
-				<input type="reset" value="Clear Selection"></center>
-			  </form>
       </div>
 		<br></br>
 		<center><h4>You're probably here for the alcohol. Here's our stock: </h4></center>
@@ -187,7 +183,6 @@
 			 ResultSet drinkSet = StatementRecordset1.executeQuery("SELECT * FROM bar.drinks INNER JOIN bar.pricetable on bar.drinks.p_id = bar.pricetable.p_id");
 		%>
 		<hr>
-		<form method="post" action="order.jsp" autocomplete="off">
 			<table class="table">
               <tr>
                 <th>Choice</th>
@@ -222,10 +217,9 @@
               </tr>
             </table>
             <br>
-            <center><input type="submit" value="Order Selection">
-            <input type="reset" value="Clear Selection"></center>
-          </form>
       </div>
+	  <center><h4>To order, walk up to the bar and ask for Bob. All prices are Galactic Standard Credits. </h4></center>
+
 
 
 	</div>
@@ -252,6 +246,7 @@
 		</div>
 
 	</section>
+	
 	<!-- Administrative tools -->
 	<section class="administrative" id="administrative">
 		<div class="heading text-center">
@@ -263,7 +258,7 @@
 		<div class="container">
 		<span id='tab-container' style = "display:inline-block;">
 
-		<!-- Add/Remove Food -->
+		<!-- Add Food -->
 			<div class="tab-content">
 					<h1 class="tab" title="Add Food to Menu">Add Food</h1>
 						<form method="post" action="insert.jsp">
@@ -293,7 +288,8 @@
 						  <input type="submit" value="Add Food to Menu">
 						</form>
 			</div>
-
+			
+			<!-- Remove Food -->
 			<div class="tab-content">
 					<h1 class="tab" title="title for page 2">Remove Foods</h1>
 
@@ -350,7 +346,7 @@
 
 
 
-		<!-- Add/Remove Drinks -->
+		<!-- Add Drinks -->
 			<div class="tab-content">
 					<h1 class="tab" title="title for page 3">Add Drinks</h1>
 					<form method="post" action="insert.jsp">
@@ -374,7 +370,8 @@
 					  <input type="hidden" name="itemToAdd" value="1">
 					</form>
 			</div>
-
+			
+			<!-- Remove Drinks -->
 			<div class="tab-content">
 					<h1 class="tab" title="title for page 3">Remove Drinks</h1>
 					<div  class="table-responsive" style = " display:block;overflow-y:scroll; height:400px;">
@@ -425,7 +422,7 @@
 
 
 
-			<!-- Add/Remove Employees -->
+			<!-- Add Employees -->
 			<div class="tab-content">
 					<h1 class="tab" title="title for page 3">Add Employees</h1>
 					<form method="post" action="insert.jsp">
@@ -451,7 +448,7 @@
 
 						</form>
 			</div>
-
+			<!-- Remove Employees -->
 			<div class="tab-content">
 					<h1 class="tab" title="title for page 3">Remove Employees</h1>
 					<div  class="table-responsive" style = " display:block;overflow-y:scroll; height:400px;">
@@ -559,8 +556,13 @@
 				<h2>Info</h2>
 				<img class="dividerline" src="img/sep.png" alt="">
 				<h3> Here is a report on how we designed this project: </h3>
-				<h3> Click one of our social links below.<br>
-				 You can find coupons on our Github page! Don't miss out! </h3>
+				<embed src="report.pdf" width="1000" height="575" type='application/pdf'>
+				<h3> Click our GitHub below<br>
+				Produced By:</h3>
+				Lee Kelvin<br>
+				Daniel Grigsby<br>
+				Dominique Owens<br>
+				Dina Benayad-Cherif
 		</div>
 	</div>
 	</section>
